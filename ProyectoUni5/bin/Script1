@@ -1,0 +1,9 @@
+##KIM TROVAMALA
+
+##CREAT A SCRIPT IN BASH (THIS IS THE SCRIPT)
+Script1
+
+###DOWNLOAD WOLF DATA IN .VCF
+wget https://datadryad.org/stash/downloads/file_stream/6226 > data/lobos.vcf
+
+echo $"listo archivo lobos.vcf"
