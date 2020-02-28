@@ -1,0 +1,56 @@
+###KIM TROVAMALA
+##SCRIPT2 ANSWER THE FOLLOWING QUESTIONS FROM A-J 
+
+##a)¿HOW MANY INVIDUALS AND VARIANTS HAS THE FILE?
+vcftools --vcf ../data/lobos.vcf --indv-freq-burden --out ../data/
+echo "SNPS CALCUALDO"
+
+
+###b)CALCULATE THE FREQUENCY OF EACH ALLELE FOR ALL THE INVIDUAL, SAVE THE RESULT IN A DOCUMENT.
+vcftools --vcf ../data/lobos.vcf --freq --out ../data/frecuencias
+echo "FRECUNCIA DE CADA ALELO CALCULADO"
+
+###c) HOW MANY SITES HAS NO MISSING DATA?
+vcftools --vcf ../data/lobos.vcf --max-missing 1.0  --out ../data/
+echo "SITIOS CON NO MISSING DATA"
+
+###d) CALCULATE THE FREQUENCAY OF EACH ALLELE POR ALL THE INDIVIDUALS, BUT ONLY FOR SITES WITH OUT MISSING DATA, PLEASE SAVE THE RESULT IN A DOCUMENT. 
+vcftools --vcf ../data/lobos.vcf --out ../data/freq_alelo --max-missing 1 --freq 
+echo "FREQUENCY POR EACH ALELLE DONE"
+
+###e) ¿HOW MANY SITES HAS THE FREQUENCY OF AN ALLELE LES THAN 0.05?
+vcftools --vcf ../data/lobos.vcf  --max-maf 0.05  --freq --out ../data/
+echo "SITES WITH LOW FRENCUENCY THAN 0.05 DONE"
+
+###f) CALCULATE THE HEREGOCYTE OF EACH INDIVIDUAL.
+vcftools --vcf ../data/lobos.vcf --het --out ../data/
+echo "HETEROGOCYTE FOR INDIVIDUAL DONE"
+
+###g) CALCULATE THE NUCLEOTIDE DIVERSITY FOR EACH SITE. 
+vcftools --vcf ../data/lobos.vcf --site-pi --out ../data/
+echo "DIVESITY NUCLETIDE FOR SITE DONE"
+
+##h) CALCULATE THE NUCLEOTIDE DIVERSITY IN SITES ONLY FOR CHROMOSEOME 3
+vcftools --vcf ../data/lobos.vcf --site-pi --chr chr03 --out ../data/
+echo "DIVERSITY FOR CHROMOSOME 3"
+
+##i) FILTER SITES WITH A FRECUNCY LESS THAN 0.05 AND CREATE A FILE WHICH NAME SHOULD BE `wolves_maf05.vcf`.
+vcftools --vcf ../data/lobos.vcf  --out ../data/wolves_maf05 --recode --max-maf 0.05
+echo "FRECUENCY LESS DAN 0.05"
+
+###j) CONVERTE THE FILE `wolves_maf05.vcf` TO PLINK. 
+vcftools --vcf ../data/wolves_maf05.recode.vcf --plink --out ../data/plinklobos
+echo "plink DONE"
+
+###AN EXTRA STEP CREAT FILES PLINK THROUGH .PLINK TOOL
+cp /home/kim/Escritorio/BioinfinvRepro/Unidad5/data/plink ../data/
+
+../data/plink --vcf ../data/lobos.vcf --out ../data/lobosplink  --chr-set 38
+echo "convertir a plink"
+
+
+
+
+
+
+

@@ -1,9 +1,8 @@
 ##KIM TROVAMALA
+##SCRIPT1
 
-##CREAT A SCRIPT IN BASH (THIS IS THE SCRIPT)
-Script1
+###CREAT A FIRST SCRIPT DOWNLOAD LOBOS IN THE FOLDER DATA FROM BIN IN .VCF
+wget https://datadryad.org/stash/downloads/file_stream/6226 -O ../data/lobos.vcf
 
-###DOWNLOAD WOLF DATA IN .VCF
-wget https://datadryad.org/stash/downloads/file_stream/6226 > ../data/lobos.vcf
-
-echo $"listo archivo lobos.vcf"
+###INDICATE WHEN HAS DONE THE DOWNLOAD
+echo "listo archivo lobos.vcf"
